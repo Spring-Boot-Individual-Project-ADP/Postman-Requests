@@ -1,0 +1,389 @@
+{
+	"info": {
+		"_postman_id": "dbf88720-d637-470a-8c86-e24800ed0af6",
+		"name": "ADP Individual Spring Boot Project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "38460043"
+	},
+	"item": [
+		{
+			"name": "Customers",
+			"item": [
+				{
+					"name": "Register Customer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"Test\",\n    \"email\": \"test@example.com\",\n    \"password\": \"password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/account/register"
+					},
+					"response": []
+				},
+				{
+					"name": "Create token for customer",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{ \n    \"name\": \"Bruce\",\n    \"password\": \"password1\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8081/account/token"
+					},
+					"response": []
+				},
+				{
+					"name": "Get all customers",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenCheck",
+								"value": "false",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "http://localhost:8080/api/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Get customer by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenCheck",
+								"value": "false",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "http://localhost:8080/api/customers/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create new customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\":\"Firstname Surname\",\n    \"email\": \"first@example.com\",\n    \"password\": \"strong_password\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/customers"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "tokenCheck",
+								"value": "false",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\":1,\n    \"name\": \"2\",\n    \"email\": \"bruce@example.com\",\n    \"password\": \"good\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/customers/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a customer",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/customers/4"
+					},
+					"response": []
+				},
+				{
+					"name": "Get customer by name",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "tokenCheck",
+								"value": "false",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": "http://localhost:8080/api/customers/byname/Bruce"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Events",
+			"item": [
+				{
+					"name": "Get all events",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Get event by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/events/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create new event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"CNC001\",\n    \"title\": \"Film night\",\n    \"description\": \"A variety of films!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/events"
+					},
+					"response": []
+				},
+				{
+					"name": "Update an event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 1,\n    \"code\": \"CNA001\",\n    \"title\": \"Games night\",\n    \"description\": \"Very fun!\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/events/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete an event",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/events/1"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Registrations",
+			"item": [
+				{
+					"name": "Get all registrations",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Get registration by ID",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "GET",
+						"header": [],
+						"url": "http://localhost:8080/api/registrations/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create new registration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"customer\": {\r\n            \"id\": 2,\r\n            \"name\": \"Paul\",\r\n            \"email\": \"paul@example.com\",\r\n            \"password\": \"password2\"\r\n        },\r\n        \"event\": {\r\n            \"id\": 2,\r\n            \"code\": \"CNB001\",\r\n            \"title\": \"Standup\",\r\n            \"description\": \"Not as fun event\"\r\n        },\r\n        \"date\": \"2019-05-18T00:00:00.000+00:00\",\r\n        \"notes\": \"Online - Teams\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/registrations"
+					},
+					"response": []
+				},
+				{
+					"name": "Update a registration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "    {\r\n        \"id\": 1,\r\n        \"customer\": {\r\n            \"id\": 2,\r\n            \"name\": \"Paul\",\r\n            \"email\": \"paul@example.com\",\r\n            \"password\": \"password2\"\r\n        },\r\n        \"event\": {\r\n            \"id\": 1,\r\n            \"code\": \"CNA001\",\r\n            \"title\": \"Games night\",\r\n            \"description\": \"Really fun event!\"\r\n        },\r\n        \"date\": \"2019-01-17T00:00:00.000+00:00\",\r\n        \"notes\": \"Can't wait!\"\r\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "http://localhost:8080/api/registrations/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a registration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": ""
+							}
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": "http://localhost:8080/api/registrations/2"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
